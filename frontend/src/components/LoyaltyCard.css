@@ -1,0 +1,285 @@
+.loyalty { background: var(--bg-secondary); }
+
+/* ── Card container ── */
+.loyalty-card {
+  position: relative;
+  background: linear-gradient(135deg, #141209 0%, #100e06 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-gold);
+}
+
+/* Top shimmer line */
+.loyalty-card-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 40%, var(--gold-light) 60%, transparent 100%);
+}
+
+/* ── Left column ── */
+.loyalty-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.loyalty-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.loyalty-brand-name {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text-primary);
+}
+
+.loyalty-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.loyalty-title span { color: var(--gold); }
+
+.loyalty-sub {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.loyalty-fine {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--border-dark);
+  padding-top: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Right column ── */
+.loyalty-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* Stamp grid */
+.loyalty-stamps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.loyalty-stamp {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.loyalty-stamp:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+
+.loyalty-stamp-num {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Equals sign */
+.loyalty-eq {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.5;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Reward */
+.loyalty-reward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.loyalty-discount {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold) 45%, var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loyalty-reward-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ── Decorative dots ── */
+.loyalty-dots {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  pointer-events: none;
+}
+
+.loyalty-dot {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.18;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .loyalty-card {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2.5rem;
+  }
+
+  .loyalty-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .loyalty-dots { display: none; }
+}
+
+@media (max-width: 600px) {
+  .loyalty-card { padding: 2rem; }
+  .loyalty-stamp { width: 48px; height: 48px; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   LOYALTY ANIMATIONS
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Section: card slide-up reveal ── */
+.loyalty .loyalty-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loyalty[data-visible="true"] .loyalty-card {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Left content reveals ── */
+.loyalty .loyalty-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.75s 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loyalty[data-visible="true"] .loyalty-left {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Stamp pop-in ── */
+.loyalty-stamp {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease, background 0.3s ease;
+  transition-delay: calc(0.45s + var(--si, 0) * 0.1s);
+}
+
+.loyalty[data-visible="true"] .loyalty-stamp {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Equals sign pop ── */
+.loyalty .loyalty-eq {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s 1.1s ease, transform 0.5s 1.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.loyalty[data-visible="true"] .loyalty-eq {
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+/* ── Discount count-up reveal ── */
+.loyalty .loyalty-discount {
+  opacity: 0;
+  transform: scale(0.6) translateY(10px);
+  transition: opacity 0.6s 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s 1.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.loyalty[data-visible="true"] .loyalty-discount {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Reward labels ── */
+.loyalty .loyalty-reward-label {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transition-delay: 1.5s;
+}
+
+.loyalty[data-visible="true"] .loyalty-reward-label {
+  opacity: 1;
+}
+
+/* ── Animated top shimmer line ── */
+.loyalty-card-shimmer {
+  animation: shimmerSweep 3.5s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmerSweep {
+  0%   { background-position: -100% 0; }
+  100% { background-position: 300% 0; }
+}

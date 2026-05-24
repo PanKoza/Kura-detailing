@@ -1,0 +1,19 @@
+{
+  "name": "Kura Detailing – Auto Detailing Ząbkowice Śląskie",
+  "short_name": "Kura Detailing",
+  "description": "Profesjonalny auto detailing premium w Ząbkowicach Śląskich. Mycie ręczne, ceramika, pranie tapicerki.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#0a0a0a",
+  "lang": "pl",
+  "dir": "ltr",
+  "categories": ["automotive", "services"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+.packages {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.packages-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.packages-header .section-title { text-align: center; }
+
+.packages-subtitle {
+  margin: 0 auto;
+  max-width: 560px;
+  text-align: center;
+}
+
+/* ── Grid ── */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ── Card ── */
+.pkg-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* transition is overridden by JS on hover; keep border/shadow here */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.pkg-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  box-shadow: var(--shadow-card);
+}
+
+/* Premium card */
+.pkg-card--premium {
+  background: linear-gradient(145deg, #1a1806 0%, #141203 100%);
+  border: 1px solid var(--gold);
+  box-shadow:
+    0 0 50px rgba(201,168,76,0.1),
+    inset 0 1px 0 rgba(201,168,76,0.25);
+  transform: translateY(-10px);
+}
+
+.pkg-card--premium:hover {
+  box-shadow: 0 0 70px rgba(201,168,76,0.22);
+}
+
+/* Animated gold glow pulse on premium card */
+.pkg-card--premium::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-xl);
+  background: transparent;
+  border: 1px solid transparent;
+  animation: premiumPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes premiumPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.08); }
+  50%       { box-shadow: 0 0 50px rgba(201,168,76,0.22); }
+}
+
+/* Badge */
+.pkg-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  color: #060606;
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.32rem 1.2rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ── Card header ── */
+.pkg-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.pkg-icon { margin-bottom: 0.4rem; }
+
+.pkg-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pkg-tier {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.pkg-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Divider ── */
+.pkg-divider {
+  border: none;
+  border-top: 1px solid var(--border-dark);
+}
+
+.pkg-card--premium .pkg-divider { border-color: var(--border-gold); }
+
+/* ── Features list ── */
+.pkg-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+}
+
+.pkg-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.pkg-feature-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── CTA ── */
+.pkg-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .pkg-card--premium {
+    transform: none;
+    order: -1;
+  }
+}
+
+@media (max-width: 500px) {
+  .packages-grid { max-width: 100%; }
+  .pkg-card { padding: 2rem 1.5rem; }
+}
+
+/* ── Scroll reveal: header ── */
+.packages-header.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.packages-header.reveal-up[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Scroll reveal: staggered card fade-in ── */
+/* Base opacity hidden; JS handles transform so we only animate opacity */
+.pkg-card {
+  opacity: 0;
+  transition-delay: calc(var(--card-i, 0) * 0.18s);
+}
+
+.packages-grid[data-visible="true"] .pkg-card {
+  opacity: 1;
+}

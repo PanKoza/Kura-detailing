@@ -1,0 +1,104 @@
+.faq {
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.faq-header {
+  max-width: 600px;
+  margin-bottom: 3.5rem;
+}
+
+/* ── List ── */
+.faq-list {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Item ── */
+.faq-item {
+  border-bottom: 1px solid var(--border-dark);
+  overflow: hidden;
+  /* Stagger reveal */
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--fi, 0) * 0.08s);
+}
+
+.faq-list[data-visible="true"] .faq-item,
+.faq-item.reveal-up[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Force visible since parent ref covers the section */
+.faq[data-visible="true"] .faq-item {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Question button ── */
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.4rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-q-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.45;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover .faq-q-text,
+.faq-item--open .faq-q-text { color: var(--gold); }
+
+/* ── Chevron ── */
+.faq-chevron {
+  flex-shrink: 0;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item--open .faq-chevron { transform: rotate(180deg); }
+
+/* ── Collapsible answer ── */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.faq-item--open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  padding-bottom: 1.4rem;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .faq-list { max-width: 100%; }
+  .faq-q-text { font-size: 0.88rem; }
+}
