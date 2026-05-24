@@ -15,9 +15,89 @@ const CrownIcon = ({ color }) => (
   </svg>
 )
 
-const CheckIcon = ({ color }) => (
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <polyline points="20 6 9 17 4 12"/>
+/* ── Service feature icons ── */
+const WindIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+    <path d="M9.59 4.59A2 2 0 1 1 11 8H2"/>
+    <path d="M10.59 19.41A2 2 0 1 0 12 16H2"/>
+    <path d="M14.5 7A2.5 2.5 0 1 1 17 12H2"/>
+  </svg>
+)
+
+const WandIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M15 4V2"/>
+    <path d="M15 16v-2"/>
+    <path d="M8 9h2"/>
+    <path d="M20 9h2"/>
+    <path d="M17.8 11.8 19 13"/>
+    <path d="M15 9h.01"/>
+    <path d="M17.8 6.2 19 5"/>
+    <path d="m3 21 9-9"/>
+    <path d="M12.2 6.2 11 5"/>
+  </svg>
+)
+
+const GlassIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="16" rx="2"/>
+    <path d="M3 10h18M10 4v16"/>
+    <circle cx="16" cy="7" r="1" fill="currentColor" stroke="none"/>
+  </svg>
+)
+
+const DropletIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+  </svg>
+)
+
+const SeatIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="4" y="4" width="16" height="9" rx="2"/>
+    <path d="M2 13h20v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5z"/>
+    <path d="M6 20v2M18 20v2"/>
+  </svg>
+)
+
+const FeatherIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+    <path d="M16 8L2 22M17.5 15H9"/>
+  </svg>
+)
+
+const WheelIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"/>
+    <circle cx="12" cy="12" r="3"/>
+    <line x1="12" y1="2" x2="12" y2="9"/>
+    <line x1="12" y1="15" x2="12" y2="22"/>
+    <line x1="2" y1="12" x2="9" y2="12"/>
+    <line x1="15" y1="12" x2="22" y2="12"/>
+  </svg>
+)
+
+const ShieldIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    <path d="M9 12l2 2 4-4"/>
+  </svg>
+)
+
+const SparkleIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+    <path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/>
+  </svg>
+)
+
+const GridIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="7" height="7"/>
+    <rect x="14" y="3" width="7" height="7"/>
+    <rect x="14" y="14" width="7" height="7"/>
+    <rect x="3" y="14" width="7" height="7"/>
   </svg>
 )
 
@@ -28,10 +108,10 @@ const PACKAGES = [
     Icon: StarIcon,
     desc: 'Idealne odświeżenie dla Twojego auta',
     features: [
-      'Odkurzanie wnętrza',
-      'Czyszczenie powierzchni plastikowych',
-      'Mycie szyb',
-      'Ręczne mycie auta zewnątrz',
+      { label: 'Odkurzanie wnętrza',                    Icon: WindIcon    },
+      { label: 'Czyszczenie powierzchni plastikowych',   Icon: WandIcon    },
+      { label: 'Mycie szyb',                             Icon: GlassIcon   },
+      { label: 'Ręczne mycie auta zewnątrz',             Icon: DropletIcon },
     ],
     premium: false,
   },
@@ -41,12 +121,12 @@ const PACKAGES = [
     Icon: StarIcon,
     desc: 'Kompleksowa pielęgnacja dla wymagających',
     features: [
-      'Odkurzanie wnętrza',
-      'Czyszczenie powierzchni plastikowych',
-      'Mycie szyb',
-      'Pranie tapicerki',
-      'Czyszczenie skór',
-      'Ręczne mycie auta zewnątrz oraz czyszczenie felg chemią',
+      { label: 'Odkurzanie wnętrza',                                          Icon: WindIcon    },
+      { label: 'Czyszczenie powierzchni plastikowych',                        Icon: WandIcon    },
+      { label: 'Mycie szyb',                                                  Icon: GlassIcon   },
+      { label: 'Pranie tapicerki',                                            Icon: SeatIcon    },
+      { label: 'Czyszczenie skór',                                            Icon: FeatherIcon },
+      { label: 'Ręczne mycie auta zewnątrz oraz czyszczenie felg chemią',     Icon: WheelIcon   },
     ],
     premium: false,
   },
@@ -56,11 +136,11 @@ const PACKAGES = [
     Icon: CrownIcon,
     desc: 'Pełna, luksusowa pielęgnacja Twojego pojazdu',
     features: [
-      'Pełny detailing wnętrza oraz zabezpieczenie',
-      'Nałożenie dressingu na plastikowe powierzchnie',
-      'Pranie wykładziny podłogowej',
-      'Mycie ręczne auta zewnątrz oraz czyszczenie felg i opon',
-      'Nałożenie płynnej ceramiki',
+      { label: 'Pełny detailing wnętrza oraz zabezpieczenie',                     Icon: SparkleIcon },
+      { label: 'Nałożenie dressingu na plastikowe powierzchnie',                  Icon: WandIcon    },
+      { label: 'Pranie wykładziny podłogowej',                                    Icon: GridIcon    },
+      { label: 'Mycie ręczne auta zewnątrz oraz czyszczenie felg i opon',         Icon: WheelIcon   },
+      { label: 'Nałożenie płynnej ceramiki',                                      Icon: ShieldIcon  },
     ],
     premium: true,
   },
@@ -109,10 +189,10 @@ function PackageCard({ tier, accent, Icon, desc, features, premium, index }) {
       <ul className="pkg-features" aria-label={`Usługi w pakiecie ${tier}`}>
         {features.map((f, i) => (
           <li key={i} className="pkg-feature">
-            <span className="pkg-feature-icon">
-              <CheckIcon color={accent} />
+            <span className="pkg-feature-icon" style={{ color: accent }}>
+              <f.Icon />
             </span>
-            {f}
+            {f.label}
           </li>
         ))}
       </ul>
