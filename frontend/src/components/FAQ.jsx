@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import './FAQ.css'
+import CityName from './CityName'
 
 const ITEMS = [
   {
@@ -41,7 +42,7 @@ export default function FAQ() {
         <header className="faq-header reveal-up" data-visible="true">
           <span className="section-label">Często zadawane pytania</span>
           <h2 className="section-title">
-            FAQ – <span>Auto Detailing Ząbkowice Śląskie</span>
+            FAQ – <span>Auto Detailing <CityName /></span>
           </h2>
           <div className="gold-divider" />
           <p className="section-subtitle">

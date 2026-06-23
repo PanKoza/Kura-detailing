@@ -11,8 +11,8 @@
   "categories": ["automotive", "services"],
   "icons": [
     {
-      "src": "/favicon.svg",
-      "type": "image/svg+xml",
+      "src": "/logo.png",
+      "type": "image/png",
       "sizes": "any"
     }
   ]

@@ -31,16 +31,11 @@
   flex-shrink: 0;
 }
 
-.navbar-rooster {
+.navbar-logo {
+  height: 52px;
+  width: auto;
+  border-radius: 50%;
   filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.35));
-}
-
-.navbar-brand-name {
-  font-family: var(--font-heading);
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--text-primary);
 }
 
 /* ── Desktop Nav ── */

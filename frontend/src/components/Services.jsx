@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import './Services.css'
+import CityName from './CityName'
 
 const CheckIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -29,7 +30,7 @@ export default function Services() {
         <header className="services-header reveal-up" ref={headerRef}>
           <span className="section-label">Co Oferujemy</span>
           <h2 className="section-title">
-            Usługi <span>detailingowe</span> Ząbkowice Śląskie
+            Usługi <span>detailingowe</span> <CityName />
           </h2>
           <div className="gold-divider" />
           <p className="section-subtitle">

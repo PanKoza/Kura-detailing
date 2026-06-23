@@ -1,0 +1,15 @@
+.city-name {
+  display: inline-block;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  white-space: nowrap;
+}
+
+.city-name--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.city-name--hidden {
+  opacity: 0;
+  transform: translateY(-6px);
+}

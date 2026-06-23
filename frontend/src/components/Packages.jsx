@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import './Packages.css'
+import CityName from './CityName'
 
 const StarIcon = ({ color }) => (
   <svg width="30" height="30" viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -216,7 +217,7 @@ export default function Packages() {
       <div className="container">
         <header className="packages-header reveal-up" ref={headerRef}>
           <span className="section-label">Pakiety Detailingowe</span>
-          <h2 className="section-title">Cennik auto detailingu <span>Ząbkowice Śląskie</span></h2>
+          <h2 className="section-title">Cennik auto detailingu <span><CityName /></span></h2>
           <div className="gold-divider center" />
           <p className="section-subtitle packages-subtitle">
             Dopasuj pakiet detailingowy do swoich potrzeb i ciesz się perfekcyjnym

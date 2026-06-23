@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import './Hero.css'
+import CityName from './CityName'
 
 /* Gold particles: x/y as % of hero, dur in seconds */
 const PARTICLES = [
@@ -64,14 +65,14 @@ export default function Hero() {
         {/* Location badge */}
         <div className="hero-badge hero-anim-1">
           <span className="hero-badge-dot" />
-          Ząbkowice Śląskie
+          <CityName />
         </div>
 
         {/* Headline — H1 with primary keyword */}
         <h1 className="hero-title">
           <span className="hero-title-script hero-anim-2">Premium</span>
           <span className="hero-title-main   hero-anim-3">AUTO DETAILING</span>
-          <span className="hero-title-sub    hero-anim-4">Ząbkowice Śląskie</span>
+          <span className="hero-title-sub    hero-anim-4"><CityName /></span>
         </h1>
 
         <p className="hero-desc hero-anim-5">
