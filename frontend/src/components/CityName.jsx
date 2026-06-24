@@ -14,7 +14,7 @@ export default function CityName() {
         setIndex(i => (i + 1) % CITIES.length)
         setVisible(true)
       }, 350)
-    }, 3500)
+    }, 15000)
     return () => clearInterval(interval)
   }, [])
 

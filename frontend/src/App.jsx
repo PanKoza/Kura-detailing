@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import PickupBanner from './components/PickupBanner'
 import Services from './components/Services'
 import Packages from './components/Packages'
 import LoyaltyCard from './components/LoyaltyCard'
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <PickupBanner />
         <Services />
         <Packages />
         <LoyaltyCard />

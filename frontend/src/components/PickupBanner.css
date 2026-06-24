@@ -1,0 +1,260 @@
+/* ── Wrapper ── */
+.pickup-banner-wrap {
+  background: var(--bg-dark, #0a0a0a);
+  padding: 4rem 0;
+}
+
+/* ── Card ── */
+.pickup-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #111 0%, #1a1608 60%, #0f0f0f 100%);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+
+  /* entry state */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.pickup-banner--visible .pickup-banner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Glow blobs ── */
+.pickup-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.pickup-blob--1 {
+  width: 360px;
+  height: 360px;
+  background: rgba(201, 168, 76, 0.12);
+  top: -120px;
+  right: -80px;
+  animation: pickupPulse 6s ease-in-out infinite;
+}
+.pickup-blob--2 {
+  width: 220px;
+  height: 220px;
+  background: rgba(201, 168, 76, 0.07);
+  bottom: -80px;
+  left: 40px;
+  animation: pickupPulse 8s ease-in-out infinite reverse;
+}
+
+@keyframes pickupPulse {
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%       { transform: scale(1.15); opacity: 0.6; }
+}
+
+/* ── Animated car track ── */
+.pickup-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Entry animation: car drives in from left */
+.pickup-banner-wrap .pickup-car-icon {
+  color: var(--gold, #C9A84C);
+  flex-shrink: 0;
+  transform: translateX(-60px);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s,
+              opacity   0.5s ease 0.3s;
+}
+.pickup-banner--visible .pickup-car-icon {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.pickup-road {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.6) 0%, rgba(201,168,76,0.15) 100%);
+  position: relative;
+  margin: 0 0.5rem;
+  overflow: hidden;
+}
+.pickup-road::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.9) 50%, transparent 100%);
+  animation: roadShimmer 2.2s linear infinite;
+}
+
+@keyframes roadShimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%);  }
+}
+
+.pickup-pin-icon {
+  color: var(--gold, #C9A84C);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(0.4) translateY(-8px);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1s,
+              opacity   0.4s ease 1s;
+}
+.pickup-banner--visible .pickup-pin-icon {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Pin bounce after appearing */
+.pickup-banner--visible .pickup-pin-icon {
+  animation: pinBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both;
+}
+@keyframes pinBounce {
+  0%   { transform: scale(0.4) translateY(-8px); opacity: 0; }
+  70%  { transform: scale(1.15) translateY(2px);  opacity: 1; }
+  100% { transform: scale(1) translateY(0);       opacity: 1; }
+}
+
+/* ── Content ── */
+.pickup-content {
+  position: relative;
+  z-index: 1;
+}
+
+.pickup-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold, #C9A84C);
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 999px;
+  padding: 0.2rem 0.8rem;
+  margin-bottom: 0.75rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+}
+.pickup-banner--visible .pickup-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pickup-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0 0 0.75rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 0.55s, transform 0.6s ease 0.55s;
+}
+.pickup-banner--visible .pickup-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pickup-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #888);
+  line-height: 1.7;
+  max-width: 560px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+}
+.pickup-banner--visible .pickup-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── CTA ── */
+.pickup-cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px solid var(--gold, #C9A84C);
+  color: var(--gold, #C9A84C);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s,
+              opacity 0.5s ease 0.85s, transform 0.5s ease 0.85s;
+}
+.pickup-banner--visible .pickup-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pickup-cta:hover {
+  background: var(--gold, #C9A84C);
+  color: #000;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.35);
+}
+
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .pickup-banner {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .pickup-track {
+    flex-direction: column;
+    width: auto;
+    max-width: none;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 56px;
+  }
+  .pickup-road {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.6) 0%, rgba(201,168,76,0.15) 100%);
+    margin: 0.3rem 0;
+    flex: unset;
+  }
+  .pickup-road::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.9) 50%, transparent 100%);
+    animation: roadShimmerV 2.2s linear infinite;
+  }
+  @keyframes roadShimmerV {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(100%);  }
+  }
+  .pickup-content {
+    flex: 1;
+  }
+  .pickup-cta {
+    flex-shrink: 0;
+    align-self: center;
+  }
+}
+
+.pickup-br { display: none; }
+@media (max-width: 640px) {
+  .pickup-br { display: inline; }
+}

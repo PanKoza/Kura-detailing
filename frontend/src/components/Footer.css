@@ -84,6 +84,15 @@
   max-width: 310px;
 }
 
+.footer-pickup {
+  margin-top: 0.75rem;
+  font-size: 0.84rem;
+  color: var(--gold);
+  opacity: 0.9;
+  max-width: 310px;
+  line-height: 1.6;
+}
+
 /* ── Column header ── */
 .footer-col-title {
   font-size: 0.68rem;

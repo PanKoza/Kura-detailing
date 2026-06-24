@@ -60,6 +60,7 @@ export default function Footer() {
                 karoserii, praniu tapicerki, ceramice samochodowej
                 i kompleksowej pielęgnacji wnętrza.
               </p>
+
             </div>
 
             {/* Nav column */}
@@ -106,7 +107,7 @@ export default function Footer() {
         <div className="container">
           <div className="footer-bottom-inner">
             <p className="footer-thanks">Dziękujemy za zaufanie!</p>
-            <p className="footer-copy">© 2025 Kura Detailing. Wszelkie prawa zastrzeżone.</p>
+            <p className="footer-copy">© 2026 Kura Detailing. Wszelkie prawa zastrzeżone.</p>
           </div>
         </div>
       </div>
