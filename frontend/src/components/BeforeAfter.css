@@ -1,0 +1,280 @@
+/* ==========================================
+   BEFORE / AFTER  —  side-by-side layout
+========================================== */
+
+/* ¦¦ Section wrapper ¦¦ */
+.ba-section {
+  padding: 6rem 1.5rem 5rem;
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+/* ¦¦ Scroll-reveal base ¦¦ */
+.ba-header,
+.ba-cards,
+.ba-dots {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.ba-header.ba-reveal  { opacity: 1; transform: none; transition-delay: 0s; }
+.ba-cards.ba-reveal   { opacity: 1; transform: none; transition-delay: 0.15s; }
+.ba-dots.ba-reveal    { opacity: 1; transform: none; transition-delay: 0.3s; }
+
+/* ¦¦ Header ¦¦ */
+.ba-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.ba-subtitle {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+
+.ba-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ¦¦ Cards row ¦¦ */
+.ba-cards {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  /* phase transitions */
+  transition: opacity 0.48s ease, transform 0.48s ease;
+}
+
+/* exit › slide up + fade */
+.ba-phase-exit {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+}
+/* enter › slide in from below */
+.ba-phase-enter {
+  opacity: 0;
+  transform: translateY(-18px) scale(0.985);
+}
+/* visible › normal */
+.ba-phase-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ¦¦ Single card ¦¦ */
+.ba-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    0 20px 60px rgba(0,0,0,0.55);
+  background: var(--bg-card);
+}
+
+.ba-card-before {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.07),
+    0 20px 60px rgba(0,0,0,0.55);
+}
+
+.ba-card-after {
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.25),
+    0 20px 60px rgba(0,0,0,0.55),
+    0 0 40px rgba(201,168,76,0.08);
+}
+
+/* ¦¦ Image inside card ¦¦ */
+.ba-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.ba-card:hover .ba-card-img {
+  transform: scale(1.04);
+}
+
+/* ¦¦ Shine overlay ¦¦ */
+.ba-card-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.04) 0%,
+    transparent 50%,
+    rgba(0,0,0,0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* ¦¦ Card label (top-left badge) ¦¦ */
+.ba-card-label {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.5);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
+.ba-card-label-gold {
+  background: rgba(201,168,76,0.18);
+  color: var(--gold-light);
+  border-color: rgba(201,168,76,0.35);
+}
+
+.ba-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ba-label-dot-before { background: var(--text-muted); }
+.ba-label-dot-after  { background: var(--gold); }
+
+/* ¦¦ Arrow divider ¦¦ */
+.ba-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.ba-arrow-line {
+  width: 1.5px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--gold-dark));
+}
+
+.ba-arrow-line:last-child {
+  background: linear-gradient(to bottom, var(--gold-dark), transparent);
+}
+
+.ba-arrow-icon {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 0 8px rgba(201,168,76,0.4));
+  animation: ba-arrow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ba-arrow-pulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.1); opacity: 0.75; }
+}
+
+/* ¦¦ Dot navigation ¦¦ */
+.ba-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 2rem;
+}
+
+.ba-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(201,168,76,0.2);
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.ba-dot:hover { background: rgba(201,168,76,0.45); }
+
+.ba-dot-active {
+  background: rgba(201,168,76,0.3);
+  transform: scale(1.3);
+}
+
+/* Progress ring fill on active dot */
+.ba-dot-progress {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--gold) 0%, transparent 0%);
+  animation: ba-dot-fill linear forwards;
+}
+
+@keyframes ba-dot-fill {
+  from { background: conic-gradient(var(--gold) 0%,   rgba(201,168,76,0.25) 0%); }
+  to   { background: conic-gradient(var(--gold) 100%, rgba(201,168,76,0.25) 100%); }
+}
+
+/* ¦¦ Counter ¦¦ */
+.ba-counter {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+}
+
+/* ¦¦ Responsive ¦¦ */
+@media (max-width: 768px) {
+  .ba-section {
+    padding: 4rem 1rem 3.5rem;
+  }
+
+  .ba-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.75rem;
+  }
+
+  .ba-arrow {
+    flex-direction: row;
+    transform: rotate(90deg);
+  }
+
+  .ba-arrow-line {
+    width: 32px;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, var(--gold-dark));
+  }
+
+  .ba-arrow-line:last-child {
+    background: linear-gradient(to right, var(--gold-dark), transparent);
+  }
+
+  .ba-arrow-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
