@@ -5,7 +5,7 @@ import CityName from './CityName'
 
 const ITEMS = [
   {
-    q: 'Ile kosztuje auto detailing w Ząbkowicach Śląskich?',
+    q: 'Ile kosztuje auto detailing w Kamieńcu Ząbkowickim?',
     a: 'Oferujemy trzy pakiety detailingowe dopasowane do budżetu. Pakiet Podstawowy obejmuje mycie zewnętrzne i czyszczenie wnętrza, Pakiet Standard zawiera dodatkowo pranie tapicerki i skór, a Pakiet Premium to pełny detailing z ceramiką samochodową. Zadzwoń pod numer 793 088 929 po dokładną wycenę.',
   },
   {
@@ -13,7 +13,7 @@ const ITEMS = [
     a: 'Detailing samochodowy to kompleksowa, profesjonalna pielęgnacja auta – zarówno zewnętrzna (mycie ręczne, polerowanie lakieru, woskowanie, ceramika) jak i wewnętrzna (pranie tapicerki, czyszczenie skór, plastików i kokpitu). Efektem jest samochód wyglądający jak nowy, z lakierem chronionym na wiele miesięcy.',
   },
   {
-    q: 'Czy wykonujecie ceramikę samochodową w Ząbkowicach Śląskich?',
+    q: 'Czy wykonujecie ceramikę samochodową w Kamieńcu Ząbkowickim?',
     a: 'Tak! W ramach Pakietu Premium nakładamy płynną ceramikę samochodową, która tworzy twardą, hydrofobową powłokę ochronną na lakierze. Chroni przed zarysowaniami, brudem, UV i czynnikami atmosferycznymi nawet przez kilka lat.',
   },
   {
@@ -22,10 +22,10 @@ const ITEMS = [
   },
   {
     q: 'Jaki jest zasięg usług Kura Detailing?',
-    a: 'Obsługujemy klientów przede wszystkim z Ząbkowic Śląskich, ale dojeżdżamy również do Kłodzka, Dzierżoniowa, Ziębic, Barda i okolicznych miejscowości na Dolnym Śląsku. Skontaktuj się z nami, aby ustalić szczegóły.',
+    a: 'Obsługujemy klientów przede wszystkim z Kamieńca Ząbkowickiego, ale dojeżdżamy również do Ząbkowic Śląskich, Dzierżoniowa, Ziębic, Barda i okolicznych miejscowości na Dolnym Śląsku. Skontaktuj się z nami, aby ustalić szczegóły.',
   },
   {
-    q: 'Jak przygotować auto do sprzedaży w Ząbkowicach Śląskich?',
+    q: 'Jak przygotować auto do sprzedaży w Kamieńcu Ząbkowickim?',
     a: 'Pomagamy przygotować auta do sprzedaży – kompleksowe czyszczenie zewnętrzne i wewnętrzne, polerowanie lakieru, pranie tapicerki i usuwanie nieprzyjemnych zapachów. Dobrze przygotowane auto może osiągnąć wyższą cenę sprzedaży.',
   },
 ]
@@ -47,7 +47,7 @@ export default function FAQ() {
           <div className="gold-divider" />
           <p className="section-subtitle">
             Odpowiedzi na najczęstsze pytania o detailing samochodowy, ceramikę,
-            pranie tapicerki i pielęgnację aut w Ząbkowicach Śląskich.
+            pranie tapicerki i pielęgnację aut w Kamieńcu Ząbkowickim.
           </p>
         </header>
 
