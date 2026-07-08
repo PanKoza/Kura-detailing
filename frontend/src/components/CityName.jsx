@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './CityName.css'
 
-const CITIES = ['Ząbkowice Śląskie', 'Kamieniec Ząbkowicki']
+const CITIES = ['Kamieniec Ząbkowicki']
 
 export default function CityName() {
   const [index, setIndex] = useState(0)

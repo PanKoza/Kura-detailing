@@ -71,7 +71,7 @@ export default function Hero() {
         {/* Headline — H1 with primary keyword */}
         <h1 className="hero-title">
           <span className="hero-title-script hero-anim-2">Premium</span>
-          <span className="hero-title-main   hero-anim-3">AUTO DETAILING</span>
+          <span className="hero-title-main   hero-anim-3">AUTO KURA DETAILING</span>
           <span className="hero-title-sub    hero-anim-4"><CityName /></span>
         </h1>
 
