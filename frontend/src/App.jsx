@@ -7,11 +7,13 @@ import LoyaltyCard from './components/LoyaltyCard'
 import BeforeAfter from './components/BeforeAfter'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import CookieConsent from './components/CookieConsent'
 import './App.css'
 
 function App() {
   return (
     <>
+      <CookieConsent />
       <Navbar />
       <main>
         <Hero />
